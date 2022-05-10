@@ -54,23 +54,27 @@ library
       plutus-tx-plugin,
       plutus-tx,
       plutus-ledger,
+      plutus-ledger-api,
+      text,
+      lens
     hs-source-dirs: src examples/src
 
 test-suite plutus-example-projects-test
   import: lang
   type: exitcode-stdio-1.0
-  main-is: Spec.hs
-  hs-source-dirs: examples/test
-  other-modules:
-    Spec.Game
+  main-is: Main.hs
+  hs-source-dirs: test
   build-depends:
     plutus-tx -any,
     plutus-tx-plugin,
     plutus-contract -any,
     plutus-ledger -any,
-    plutus-starter -any
+    plutus-starter -any,
+    text,
+    plutus-pab -any,
   build-depends:
     base >=4.9 && <5,
+    text -any,
     tasty -any,
     tasty-hunit -any,
     tasty-hedgehog >=0.2.0.0
