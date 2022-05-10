@@ -34,8 +34,9 @@ tests =
     "Basic storage use-cases"
     [ checkPredicate
         "Should fail to update file has with same name"
-        ( assertNoFailedTransactions
-          -- assertContractError endpoints t1 (scriptErrorPredicate "fail") "should fail during validation process"
+        ( --assertFailedTransaction (transactionFailedPredicate "BOOM FAIL")
+        -- assertNoFailedTransactions
+          assertContractError endpoints t1 (scriptErrorPredicate "BOOM FAIL") "should fail during validation process"
             -- .&&. assertAccumState theContract t1 ((Last $ Just $ CreatedFile "some-file-hash-1") ==) "Final state for w1 should be CreatedFile"
         )
         $ do
@@ -52,6 +53,6 @@ scriptErrorPredicate errorMsg (WalletContractError (ValidationError (ScriptFailu
 scriptErrorPredicate errorMsg (OtherContractError err) = err == errorMsg
 scriptErrorPredicate _ _ = False
 
---transactionFailedPredicate :: Text -> Tx -> ValidationError -> [ScriptValidationEvent] -> Bool
---transactionFailedPredicate errorMsg _ (ScriptFailure (EvaluationError allErrors _)) _ = errorMsg `elem` allErrors
---transactionFailedPredicate _ _ _ _ = False
+transactionFailedPredicate :: Text -> Tx -> ValidationError -> [ScriptValidationEvent] -> Bool
+transactionFailedPredicate errorMsg _ (ScriptFailure (EvaluationError allErrors _)) _ = errorMsg `elem` allErrors
+transactionFailedPredicate _ _ _ _ = False
