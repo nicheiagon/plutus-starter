@@ -63,17 +63,16 @@ library
 test-suite plutus-example-projects-test
   import: lang
   type: exitcode-stdio-1.0
-  main-is: Spec.hs
-  hs-source-dirs: examples/test
-  other-modules:
-    Spec.Game
+  main-is: Main.hs
+  hs-source-dirs: test
   build-depends:
     plutus-tx -any,
     plutus-tx-plugin,
     plutus-contract -any,
     plutus-pab -any,
     plutus-ledger -any,
-    plutus-starter -any
+    plutus-starter -any,
+    text
   build-depends:
     base >=4.9 && <5,
     tasty -any,
