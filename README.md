@@ -1,4 +1,5 @@
 ```
+Linking /home/niko/projects/plutus-starter/dist-newstyle/build/x86_64-linux/ghc-8.10.4.20210212/plutus-starter-0.1.0.0/t/plutus-example-projects-test/build/plutus-example-projects-test/plutus-example-projects-test ...
 Running 1 test suites...
 Test suite plutus-example-projects-test: RUNNING...
 Use cases
@@ -113,16 +114,10 @@ Use cases
                        Contract log: String "SHOULD NOT GET HERE"
       [WARNING] Slot 2: TxnValidationFail Phase2 4736d330a364c558bbd4804456cbec0ebdf1380cdc35997187de908cbf6b4cc8: ScriptFailure (EvaluationError ["BOOM FAIL","PT5"] "CekEvaluationFailure")
       [INFO] Slot 3: 00000000-0000-4000-8000-000000000000 {Wallet W[1]}:
-                       Contract log: String "collected gifts"
+                       Contract log: String "DEFINITELY SHOULD NOT GET HERE"
         src/Plutus/Contract/Test.hs:300:
         Should fail to update file has with same name
 
 1 out of 1 tests failed (0.04s)
 Test suite plutus-example-projects-test: FAIL
-Test suite logged to:
-/home/niko/projects/plutus-starter/dist-newstyle/build/x86_64-linux/ghc-8.10.4.20210212/plutus-starter-0.1.0.0/t/plutus-example-projects-test/test/plutus-starter-0.1.0.0-plutus-example-projects-test.log
-0 of 1 test suites (0 of 1 test cases) passed.
-cabal: Tests failed for test:plutus-example-projects-test from
-plutus-starter-0.1.0.0.
-
 ```
